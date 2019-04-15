@@ -39,7 +39,15 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = model.title
         cell.detailTextLabel?.text = model.detail
         cell.imageView?.image = model.image
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ViewSegue" else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let model = models[indexPath.row]
         
+        let controller = segue.destination as! ViewController
+        controller.model = model
     }
     
 }
