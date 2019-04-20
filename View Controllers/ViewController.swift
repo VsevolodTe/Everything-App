@@ -11,14 +11,27 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var editStackView: UIStackView!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var viewStackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
     var model: Model!
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if !editing {
+            model.title = nameField.text ?? ""
+            model.detail = detailTextView.text 
+        }
+        updateUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        setupUI()
     }
     
     override func viewWillLayoutSubviews() {
@@ -30,6 +43,15 @@ class ViewController: UIViewController {
         updateStackView(to: size)
     }
     
+    func setupUI() {
+        navigationItem.rightBarButtonItem = editButtonItem
+        if model == nil {
+            model = Model(title: "", detail: "", image: nil)
+            isEditing = true
+        }
+        updateUI()
+    }
+    
     func updateStackView(to size: CGSize) {
         let isHorizontal = size.height < size.width
         topStackView.axis = isHorizontal ? .horizontal : .vertical
@@ -37,7 +59,16 @@ class ViewController: UIViewController {
     
     func updateUI() {
         imageView.image = model.image
-        titleLabel.text = model.title
-        detailLabel.text = model.detail
+        if isEditing {
+            editStackView.isHidden = false
+            viewStackView.isHidden = true
+            nameField.text = model.title
+            detailTextView.text = model.detail
+        } else {
+            editStackView.isHidden = true
+            viewStackView.isHidden = false
+            titleLabel.text = model.title
+            detailLabel.text = model.detail
+        }
     }
 }

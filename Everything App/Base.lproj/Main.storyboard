@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ep3-6D-Ehs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ep3-6D-Ehs">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +55,15 @@
                             <outlet property="delegate" destination="Xny-Q3-nyz" id="kLg-Pc-ZAv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Drums" id="BYM-PF-yDt"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Drums" id="BYM-PF-yDt">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UvU-fc-VtY">
+                            <connections>
+                                <segue destination="gwl-Sh-gDy" kind="show" identifier="AddSegue" id="pgI-zL-1Gw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXe-TZ-4DB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,13 +78,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fkU-6h-9xW">
-                                <rect key="frame" x="8" y="148" width="398" height="706"/>
+                                <rect key="frame" x="8" y="148" width="398" height="657"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7A-d7-d2h">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="353"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="328.5"/>
                                     </imageView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nCJ-0I-yRK">
+                                        <rect key="frame" x="0.0" y="328.5" width="398" height="0.0"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bu3-cN-Lms">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="0.0"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lb-2Y-F68">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="IEv-W2-ACz">
-                                        <rect key="frame" x="0.0" y="353" width="398" height="353"/>
+                                        <rect key="frame" x="0.0" y="328.5" width="398" height="328.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T49-Id-wH3">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="36"/>
@@ -85,7 +110,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-LA-OBj">
-                                                <rect key="frame" x="0.0" y="327.5" width="398" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="303" width="398" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -106,9 +131,13 @@
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="a8C-LA-OBj" id="LqC-8E-Jwf"/>
+                        <outlet property="detailTextView" destination="9lb-2Y-F68" id="n54-x2-56B"/>
+                        <outlet property="editStackView" destination="nCJ-0I-yRK" id="UJI-kO-bW8"/>
                         <outlet property="imageView" destination="G7A-d7-d2h" id="4yt-yA-yNe"/>
+                        <outlet property="nameField" destination="Bu3-cN-Lms" id="UAR-ge-LE6"/>
                         <outlet property="titleLabel" destination="T49-Id-wH3" id="QcP-Eh-Uc4"/>
                         <outlet property="topStackView" destination="fkU-6h-9xW" id="g1Y-po-7bn"/>
+                        <outlet property="viewStackView" destination="IEv-W2-ACz" id="Wgj-J9-vQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eU7-SX-4Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,4 +164,7 @@
     <resources>
         <image name="baraban-malenkiy-reznoy_enl-1" width="1004" height="1004"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pgI-zL-1Gw"/>
+    </inferredMetricsTieBreakers>
 </document>

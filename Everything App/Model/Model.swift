@@ -9,7 +9,7 @@
 import UIKit
 
 struct Model {
-    let title: String
-    let detail: String
-    let image: UIImage?
+    var title: String
+    var detail: String
+    var image: UIImage?
 }
