@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailViewController.swift
 //  Everything App
 //
 //  Created by Гость on 13/04/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailViewController: UIViewController {
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editStackView: UIStackView!
@@ -44,12 +44,18 @@ class ViewController: UIViewController {
     }
     
     func setupUI() {
-        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItems = [navigationItem.rightBarButtonItem!, editButtonItem]
         if model == nil {
             model = Model(title: "", detail: "", image: nil)
             isEditing = true
         }
         updateUI()
+    }
+    
+    func updateModel() {
+        model.title = nameField.text ?? ""
+        model.detail = detailTextView.text
+        
     }
     
     func updateStackView(to size: CGSize) {
@@ -70,5 +76,9 @@ class ViewController: UIViewController {
             titleLabel.text = model.title
             detailLabel.text = model.detail
         }
+    }
+    
+    @IBAction func fieldChanged() {
+        updateModel()
     }
 }

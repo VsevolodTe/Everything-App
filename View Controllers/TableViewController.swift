@@ -46,8 +46,25 @@ class TableViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let model = models[indexPath.row]
         
-        let controller = segue.destination as! ViewController
+        let controller = segue.destination as! DetailViewController
         controller.model = model
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        guard segue.identifier == "SaveSegue" else { return }
+        
+        let controller = segue.source as! DetailViewController
+        let model = controller.model!
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let row = indexPath.row
+            models[row] = model
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            let indexPath = IndexPath(row: models.count, section: 0)
+            models.append(model)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
     
 }

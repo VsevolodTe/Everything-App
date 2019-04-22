@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1639" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="Ma9-T2-HfA">
             <objects>
-                <viewController id="gwl-Sh-gDy" customClass="ViewController" customModule="Everything_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gwl-Sh-gDy" customClass="DetailViewController" customModule="Everything_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LDU-hG-IvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +91,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="fieldChanged" destination="gwl-Sh-gDy" eventType="editingChanged" id="guo-J6-X7S"/>
+                                                </connections>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9lb-2Y-F68">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="0.0"/>
@@ -129,6 +132,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LIa-tB-5nH"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="OhR-jw-8aM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TA1-bO-94y">
+                            <connections>
+                                <segue destination="zdq-3F-u51" kind="unwind" unwindAction="unwindWithSegue:" id="3kH-C0-mBW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L3a-Nk-g8H">
+                            <connections>
+                                <segue destination="zdq-3F-u51" kind="unwind" identifier="SaveSegue" unwindAction="unwindWithSegue:" id="gqd-ti-M10"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailLabel" destination="a8C-LA-OBj" id="LqC-8E-Jwf"/>
                         <outlet property="detailTextView" destination="9lb-2Y-F68" id="n54-x2-56B"/>
@@ -141,8 +158,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eU7-SX-4Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zdq-3F-u51" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2484.057971014493" y="127.90178571428571"/>
+            <point key="canvasLocation" x="2520" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FyH-66-AK4">
@@ -165,6 +183,6 @@
         <image name="baraban-malenkiy-reznoy_enl-1" width="1004" height="1004"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pgI-zL-1Gw"/>
+        <segue reference="Rb2-Ro-m6A"/>
     </inferredMetricsTieBreakers>
 </document>
